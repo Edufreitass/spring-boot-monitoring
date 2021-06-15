@@ -7,16 +7,18 @@ spring:
       uri: 'mongodb://localhost:27017/person-db'
 
 management:
-  health:
-    diskspace:
-      enabled: false
-  endpoint:
-    health:
-      show-details: always
   endpoints:
     web:
       exposure:
         include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    diskspace:
+      enabled: false
+    mongo:
+      enabled: false
 
 info:
   app:
