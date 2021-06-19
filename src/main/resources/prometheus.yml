@@ -1,13 +1,12 @@
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+  scrape_interval: 15s # By default, scrape targets every 15 seconds.
 scrape_configs:
-  - job_name: 'prometheusJob'
+  - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['localhost:9090'] #Servidor prometheus
-  - job_name: 'spring-monitoring-demo'
-    scrape_interval: 5s
+      - targets: ['192.168.1.7:9090'] # Prometheus server
+  - job_name: 'spring-actuator'
     metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
     static_configs:
-      - targets: ['localhost:8087'] #Servidor da minha aplicação
+      - targets: ['192.168.1.7:8087'] # My application server
